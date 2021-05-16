@@ -152,8 +152,9 @@ function draw() {
   restart.visible = false;
   ground.visible = false;
   
-  if(keyDown("space")) {
+  if((touches.length>0||keyDown("space"))) {
     gameState = PLAY;
+    touches=[];
     instructionPage.visible=false;
   }
 
@@ -218,7 +219,7 @@ score = score + Math.round(frameCount/100);
     
     //jump when the space key is pressed
     
-    if(touches.length>0||keyDown("space")&& main.y >= 300) {
+    if((touches.length>0||keyDown("space"))&& main.y >= 300) {
         main.velocityY = -15;
         touches=[];
     }
